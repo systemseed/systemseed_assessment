@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_completed
+    - paragraphs.paragraphs_type.to_do_item
+id: paragraph.to_do_item.field_completed
+field_name: field_completed
+entity_type: paragraph
+bundle: to_do_item
+label: Completed
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

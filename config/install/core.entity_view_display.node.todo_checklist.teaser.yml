@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.todo_checklist.field_to_do_list
+    - node.type.todo_checklist
+  module:
+    - user
+id: node.todo_checklist.teaser
+targetEntityType: node
+bundle: todo_checklist
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_to_do_list: true

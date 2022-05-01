@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_to_do_list
+    - node.type.todo_checklist
+    - paragraphs.paragraphs_type.to_do_item
+  module:
+    - entity_reference_revisions
+id: node.todo_checklist.field_to_do_list
+field_name: field_to_do_list
+entity_type: node
+bundle: todo_checklist
+label: 'To-Do List'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      to_do_item: to_do_item
+    negate: 0
+    target_bundles_drag_drop:
+      to_do_item:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

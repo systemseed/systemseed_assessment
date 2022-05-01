@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.to_do_item.field_completed
+    - field.field.paragraph.to_do_item.field_label
+    - paragraphs.paragraphs_type.to_do_item
+  module:
+    - text
+id: paragraph.to_do_item.default
+targetEntityType: paragraph
+bundle: to_do_item
+mode: default
+content:
+  field_label:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 1
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_completed: true
+  status: true

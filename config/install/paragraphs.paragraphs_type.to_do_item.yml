@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: to_do_item
+label: 'To-Do Item'
+icon_uuid: null
+icon_default: null
+description: 'A single To-Do item.'
+behavior_plugins: {  }

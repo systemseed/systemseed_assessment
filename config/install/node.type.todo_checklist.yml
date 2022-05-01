@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'To-Do Checklist'
+type: todo_checklist
+description: 'Provides a list of todo items.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

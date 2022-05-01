@@ -1,0 +1,12 @@
+name: SystemSeed Technical Assessment
+type: module
+description: Provides configurations for the technical assessment.
+package: SystemSeed
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:field
+  - drupal:node
+  - drupal:text
+  - drupal:user
+  - entity_reference_revisions:entity_reference_revisions
+  - paragraphs:paragraphs
