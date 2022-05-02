@@ -19,7 +19,6 @@ jobs:
             composer config repositories.systemseed/systemseed_assessment path ../systemseed_assessment && \
             composer config minimum-stability dev && \
             composer require "systemseed/systemseed_assessment:*@dev" && \
-            composer require drupal/paragraphs && \
             composer require --dev dealerdirect/phpcodesniffer-composer-installer
 
       - run:

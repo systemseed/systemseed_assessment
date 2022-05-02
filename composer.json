@@ -1,0 +1,17 @@
+{
+    "name": "systemseed/systemseed_assessment",
+    "description": "Provides configuration & initial code for the technical assessment.",
+    "type": "drupal-module",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "license": "GPL-2.0",
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "require": {
+        "drupal/paragraphs": "^1"
+    }
+}
