@@ -1,12 +1,16 @@
 version: 2.1
 
 jobs:
-  build:
+  build_and_test:
     docker:
       - image: cimg/php:8.1
     steps:
       - checkout:
           path: systemseed_assessment
+
+      - run:
+          name: Install SQLite driver
+          command: sudo apt-get update && sudo apt-get install -y php8.1-sqlite3
 
       - run:
           name: Create and install Drupal project
@@ -23,7 +27,12 @@ jobs:
             composer require --dev dealerdirect/phpcodesniffer-composer-installer
 
       - run:
-          name: Run PHP code sniffer to check for Drupal coding standards
+          name: Run PHP code sniffer to check Drupal coding standards
           working_directory: drupal
           command: |
             vendor/bin/phpcs --standard=Drupal --ignore=node_modules,vendor,dist,js web/modules/contrib/systemseed_assessment/
+
+      - run:
+          name: Run test
+          working_directory: drupal
+          command: php -S localhost:8888 -t web/ & sleep 1 && php web/core/scripts/run-tests.sh --sqlite /tmp/drupal/runner.sqlite --dburl sqlite://localhost//tmp/drupal/test.sqlite --url http://localhost:8888 --module systemseed_assessment --verbose --suppress-deprecations
