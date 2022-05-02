@@ -62,7 +62,9 @@ class TodoListFormatter extends FormatterBase {
         'id' => 'todo-list',
         'data-todo-list' => Json::encode($todo_list),
       ],
+      '#attached' => [
+        'library' => ['systemseed_assessment/application'],
+      ]
     ];
   }
-
 }
