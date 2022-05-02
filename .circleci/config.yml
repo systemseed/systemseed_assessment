@@ -1,0 +1,29 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/php:8.1
+    steps:
+      - checkout:
+          path: systemseed_assessment
+
+      - run:
+          name: Create and install Drupal project
+          command: composer create-project drupal/recommended-project:^9 drupal
+
+      - run:
+          name: Install project dependencies
+          working_directory: drupal
+          command: |
+            composer config repositories.systemseed/systemseed_assessment path ../systemseed_assessment && \
+            composer config minimum-stability dev && \
+            composer require "systemseed/systemseed_assessment:*@dev" && \
+            composer require drupal/paragraphs && \
+            composer require --dev dealerdirect/phpcodesniffer-composer-installer
+
+      - run:
+          name: Run PHP code sniffer to check for Drupal coding standards
+          working_directory: drupal
+          command: |
+            vendor/bin/phpcs --standard=Drupal --ignore=node_modules,vendor,dist,js web/modules/contrib/systemseed_assessment/
