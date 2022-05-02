@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\anu_lms\Functional;
+namespace Drupal\Tests\systemseed_assessment\Functional;
 
 use Drupal\Tests\BrowserTestBase;
 
