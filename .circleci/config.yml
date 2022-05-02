@@ -18,7 +18,8 @@ jobs:
           command: |
             composer config repositories.systemseed/systemseed_assessment path ../systemseed_assessment && \
             composer config minimum-stability dev && \
-            composer require "systemseed/systemseed_assessment:*@dev" && \
+            composer require systemseed/systemseed_assessment:*@dev && \
+            composer require --dev drupal/core-dev:^9 && \
             composer require --dev dealerdirect/phpcodesniffer-composer-installer
 
       - run:
