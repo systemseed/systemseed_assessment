@@ -5,7 +5,7 @@ dependencies:
     - field.field.node.todo_checklist.field_to_do_list
     - node.type.todo_checklist
   module:
-    - entity_reference_revisions
+    - systemseed_assessment
     - user
 id: node.todo_checklist.default
 targetEntityType: node
@@ -13,11 +13,9 @@ bundle: todo_checklist
 mode: default
 content:
   field_to_do_list:
-    type: entity_reference_revisions_entity_view
+    type: systemseed_assessment_todo_list
     label: above
-    settings:
-      view_mode: default
-      link: ''
+    settings: {  }
     third_party_settings: {  }
     weight: 101
     region: content
