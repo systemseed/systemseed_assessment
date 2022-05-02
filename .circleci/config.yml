@@ -10,7 +10,7 @@ jobs:
 
       - run:
           name: Install SQLite driver
-          command: sudo apt-get update && sudo apt-get install -y php8.1-sqlite3
+          command: sudo apt-get update && sudo apt-get install -y php8.0-sqlite3
 
       - run:
           name: Create and install Drupal project
