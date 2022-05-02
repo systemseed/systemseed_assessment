@@ -64,7 +64,8 @@ class TodoListFormatter extends FormatterBase {
       ],
       '#attached' => [
         'library' => ['systemseed_assessment/application'],
-      ]
+      ],
     ];
   }
+
 }
