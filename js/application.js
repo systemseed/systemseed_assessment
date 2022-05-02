@@ -32,7 +32,7 @@ const Application = () => {
     <div className="todo-list">
       {todoList.map(item => {
         return (
-          <div className="todo-list__item" key={item.label}>
+          <div className="todo-list__item" key={item.id}>
             <input
               type="checkbox"
               value={item.id}
