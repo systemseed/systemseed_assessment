@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/systemseed/systemseed_assessment/tree/main.svg?style=svg)](https://circleci.com/gh/systemseed/systemseed_assessment/tree/main)
+
 # What is this?
 
 It is a Drupal module. It's expected to be used as a prerequisite for technical assessment execution as a part of recruitment process for Drupal engineers at SystemSeed.
