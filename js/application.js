@@ -13,10 +13,8 @@ const Application = () => {
   // manage changes of its state.
   const [todoItems, setTodoItems] = useState(todoList);
 
-  // React to the change of the checkbox of a To-Do item.
-  // WE EXPECT YOU TO PUT THE CODE WHICH SAVES THE STATE
-  // INSIDE THIS METHOD.
-  const onItemChange = (event) => {
+  // React to the change event of checkbox of a To-Do item.
+  const onCheckboxChange = (event) => {
     // Get value of the paragraph ID from the triggered element.
     const id = Number.parseInt(event.target.value, 10);
     // Get index of the element in the list of To-Do items.
@@ -24,6 +22,7 @@ const Application = () => {
     // Deep clone the array to make sure that we don't drag our changes
     // to the mutable array with state.
     const newTodoItems = [...todoItems];
+    // Update state of the To-Do item.
     newTodoItems[itemIndex].completed = event.target.checked;
     setTodoItems(newTodoItems);
   };
@@ -40,7 +39,7 @@ const Application = () => {
               name={"item-" + item.id}
               className="todo-list__input"
               checked={todoItems.find(todoItem => todoItem.id === item.id).completed}
-              onChange={onItemChange}
+              onChange={onCheckboxChange}
             />
             <label
               htmlFor={"item-" + item.id}

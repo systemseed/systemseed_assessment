@@ -42,10 +42,9 @@ class TodoListFormatter extends FormatterBase {
         continue;
       }
 
-      /** @var \Drupal\Core\Field\Plugin\Field\FieldType\BooleanItem $completed */
+      // Get value of the completion state of a To-Do item.
       $completed = $paragraph->get('field_completed')->getString();
-
-      /** @var \Drupal\text\Plugin\Field\FieldType\TextLongItem $label */
+      // Get processed text value of a To-Do item label.
       $label = $paragraph->get('field_label')->first()->getValue();
 
       $todo_list[] = [
