@@ -13,10 +13,8 @@ A local development environment with:
 
 # How to install it?
 
-It's a usual Drupal module, so you can install it either:
-
-- [Using composer](https://www.drupal.org/docs/develop/using-composer/using-composer-to-install-drupal-and-manage-dependencies#adding-modules) (you will need to specify a [custom repository](https://www.drupal.org/docs/develop/using-composer/using-composer-to-install-drupal-and-manage-dependencies#third-party-libraries))
-- Download the repository as a ZIP archive and unarchive into a folder with modules
+Clone the git repository into the folder with custom Drupal modules and then install it as a usual Drupal module.
+All necessary configurations will be imported on installation automatically.
 
 # Where to find a task for technical assessment?
 
