@@ -8,7 +8,7 @@ It is a Drupal module. It's expected to be used as a prerequisite for technical 
 
 A local development environment with:
 
-- [Drupal core 9](https://www.drupal.org/project/drupal)
+- [Drupal core 11](https://www.drupal.org/project/drupal)
 - [Paragraphs module](https://www.drupal.org/project/paragraphs)
 
 # How to install it?

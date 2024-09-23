@@ -2,7 +2,7 @@ name: SystemSeed Technical Assessment
 type: module
 description: Provides configuration & initial code for the technical assessment.
 package: SystemSeed
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^9 || ^10 || ^11
 dependencies:
   - drupal:field
   - drupal:node

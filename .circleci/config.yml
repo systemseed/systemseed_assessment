@@ -1,23 +1,30 @@
-version: 2.1
-
 jobs:
   build:
-    docker:
-      - image: cimg/php:8.1
+    machine:
+      image: ubuntu-2404:2024.05.1
+      docker_layer_caching: true
     steps:
       - checkout:
           path: systemseed_assessment
 
       - run:
-          name: Install SQLite driver
+          name: Install dependencies
           command: |
             sudo add-apt-repository -y ppa:ondrej/php
             sudo apt update && \
-            sudo apt install -y php8.1-sqlite3
+            sudo apt install -y php8.3 php8.3-cli php8.3-xml php8.3-sqlite3 php8.3-gd php8.3-curl
+
+      - run:
+          name: Install Composer
+          command: |
+            curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
+            HASH=`curl -sS https://composer.github.io/installer.sig`
+            php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+            sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
       - run:
           name: Create and install Drupal project
-          command: composer create-project drupal/recommended-project:^9 drupal
+          command: composer create-project drupal/recommended-project:^11 drupal
 
       - run:
           name: Install project dependencies
@@ -26,7 +33,7 @@ jobs:
             composer config repositories.systemseed/systemseed_assessment path ../systemseed_assessment && \
             composer config minimum-stability dev && \
             composer require systemseed/systemseed_assessment:*@dev && \
-            composer require --dev drupal/core-dev:^9 && \
+            composer require --dev drupal/core-dev:^11 && \
             composer require --dev dealerdirect/phpcodesniffer-composer-installer && \
             composer require --dev phpspec/prophecy-phpunit:^2
 
@@ -39,4 +46,4 @@ jobs:
       - run:
           name: Run test
           working_directory: drupal
-          command: php -S localhost:8888 -t web/ & sleep 1 && php web/core/scripts/run-tests.sh --sqlite /tmp/drupal/runner.sqlite --dburl sqlite://localhost//tmp/drupal/test.sqlite --url http://localhost:8888 --module systemseed_assessment --verbose --suppress-deprecations
+          command: php -S localhost:8888 -t web/ & sleep 1 && php web/core/scripts/run-tests.sh --sqlite /tmp/drupal/runner.sqlite --dburl sqlite://localhost//tmp/drupal/test.sqlite --url http://localhost:8888 --module systemseed_assessment
