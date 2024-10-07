@@ -19,7 +19,7 @@ class HealthCheckTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'bartik';
+  protected $defaultTheme = 'stark';
 
   /**
    * Tests that the admin works.
